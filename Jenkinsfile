@@ -19,8 +19,8 @@ pipeline {
         stage('Install Frontend Dependencies') {
             steps {
                 bat '''
-                    npm install
-                    npm audit fix --force
+                set PATH=%NODEJS_HOME%;%PATH%
+                npm install
                 '''
             }
         }
