@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment{
+        NODEJS_HOME="C:\\Program Files\\nodejs"
+    }
+
     tools {
         nodejs 'NodeJS'
     }
@@ -24,6 +28,7 @@ pipeline {
         stage('Lint'){
             steps{
                 bat '''
+                set PATH=%NODEJS_HOME%;%PATH%
                 npm run lint
                 '''
             }
