@@ -20,6 +20,24 @@ pipeline {
                 '''
             }
         }
+        
+        stage('Lint'){
+            steps{
+                bat '''
+                npm run lint
+                '''
+            }
+        }
+
+        stage('Build'){
+            steps{
+                bat '''
+                npm run build
+                '''
+            }
+        }
+
+
 
         stage('SonarQube Analysis') {
             environment {
