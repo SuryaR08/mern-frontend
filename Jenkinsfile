@@ -37,6 +37,7 @@ pipeline {
         stage('Build'){
             steps{
                 bat '''
+                set PATH=%NODEJS_HOME%;%PATH%
                 npm run build
                 '''
             }
